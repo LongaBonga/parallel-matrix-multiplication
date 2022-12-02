@@ -34,7 +34,16 @@ int main(int argc, char *argv[])
 		return status;
 	}
 
-	pm.parralelMultRow(A, B);
+	Matrix result_block = pm.parralelMultBlock(A, B);
+
+	for (auto a : result_block)
+	{
+		for (int b : a)
+		{
+			std::cout << b << '\t';
+		}
+		std::cout << '\n';
+	}
 
 	return 0;
 }
